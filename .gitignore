@@ -1,0 +1,9 @@
+# .gitignore
+__pycache__/
+.env
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
