@@ -48,7 +48,7 @@ The `meta-llama/Llama-3.1-8B-Instruct` model used in this application requires a
 ## Monitoring with OpenLit
 The Project integrates [OpenLit](https://github.com/openlit/openlit) to get insights into the AI application's performance, behavior, and identify areas of improvement. The openlit SDK installation and initialization is completed within the app.py file and requirement.txt file. The following steps are required to deploy and visualize the OpenLit Stack:
 
-#### Deploy OpenLIT Stack
+### Deploy OpenLIT Stack
 Git Clone OpenLIT Repository
 ```
 git clone https://github.com/openlit/openlit.git
@@ -57,7 +57,7 @@ Run the following command within the Openlit directory:
 ```
 docker compose up -d
 ```
-#### OpenLit Dashboard
+### OpenLit Dashboard
 To visualize the observability data being collected and sent to OpenLit, enter 127.0.0.1:3000 on your browser and login using the following default credentials:
 Email: user@openlit.io
 Password: openlituser
