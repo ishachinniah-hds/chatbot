@@ -36,7 +36,7 @@ Alternatively, you can set the environment variable for the Hugging Face API key
 
 
 ## Model access
-Models used in this application may requires access permission to be granted by the developer, for instance, Meta llama models require permissions access from Meta. Access requests can be made under the [Hugging Face model](https://huggingface.co/models) by filling out the Community License Agreement form under the specific model. Once permission is granted, the model is automatically made available through the Hugging Face CLI login.
+Models used in this application may requires access permission to be granted by the developer - for instance, Meta llama models require permissions access from Meta. Access requests can be made within [Hugging Face models](https://huggingface.co/models) by filling out the Community License Agreement form under the specific model. Once permission is granted, the model is automatically made available through the Hugging Face CLI login.
 
 ### Supported Models 
 
