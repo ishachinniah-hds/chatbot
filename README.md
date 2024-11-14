@@ -24,14 +24,14 @@ pip install -r requirements.txt
 ## Environment Setup
 Users must be registered with [Hugging Face](https://huggingface.co/) and generate an API token. The application requires the Hugging Face CLI for API key management and model access:
 
-#### Huggingface CLI
+### Huggingface CLI
 ```bash
 pip install huggingface-hub
 huggingface-cli login
 ```
 After logging in, enter your Hugging Face API key when prompted.  
 
-#### Environemnt Variable
+### Environemnt Variable
 Alternatively, you can set the environment variable for the Hugging Face API key manually in the `.env` file.
 
 
