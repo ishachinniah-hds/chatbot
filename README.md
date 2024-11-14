@@ -35,8 +35,15 @@ After logging in, enter your Hugging Face API key when prompted.
 Alternatively, you can set the environment variable for the Hugging Face API key manually in the `.env` file.
 
 
-## Llama3 model access
-The `meta-llama/Llama-3.1-8B-Instruct` model used in this application requires access permission to be granted by Meta. Access requests can be made under the [llama3 model](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) on the Hugging Face webpage by filling out the Community License Agreement form. Once permission is granted, the model is automatically made available though you Hugging Face CLI login.
+## Model access
+Models used in this application may requires access permission to be granted by the developer, for instance, llama3 models require permissions access from Meta. Access requests can be made under the [Hugging Face model](https://huggingface.co/models) by filling out the Community License Agreement form. Once permission is granted, the model is automatically made available through the Hugging Face CLI login.
+
+### Supported Models - MODIFY
+
+| 🤖 Model                                   | Supported | Access Reqest | Link to the model                                                                                                                                          |
+|--------------------------------------------|-----------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `meta-llama/Llama-3.1-8B-Instruct`          | ✅         | Meta         | [link](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct)                                                                       |
+| `meta-llama/Llama-2-7b-chat-hf`              | ✅         | Meta         | [link](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf)                                                                                               
 
 
 ## Codebase Structure
