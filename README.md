@@ -67,21 +67,3 @@ Password: openlituser
 The application can be run through the CLI by running `python app.py`. The application will request the user to input the file path to the document that will be queried, followed by a question about the uploaded document. The RAG application will process the document and output relevant context-based answers about the document using the LLM. 
 
 
-
-
-
-
-### OpenTelemetry Collector Core Distro
-
-This distribution contains all the components from the [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) repository and a small selection of components tied to open source projects from the [OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib) repository.
-
-This distribution is considered "classic" and is no longer accepting new components outside of components from the Core repo.
-
-#### Components
-
-The full list of components is available in the [manifest](manifest.yaml)
-
-##### Rules for Component Inclusion
-
-Since Core is a "classic" distribution its components are strictly limited to what currently exists in its [manifest](manifest.yaml) and any future components in Core.
-No other components from Contrib should be added.
