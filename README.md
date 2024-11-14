@@ -65,8 +65,8 @@ Run the following command within the Openlit directory:
 docker compose up -d
 ```
 ### OpenLit Dashboard
-To visualize the observability data being collected and sent to OpenLit, enter 127.0.0.1:3000 on your browser and login using the following default credentials:
-Email: user@openlit.io
+To visualize the observability data being collected and sent to OpenLit, enter 127.0.0.1:3000 on your browser and login using the following default credentials: <br/>
+Email: user@openlit.io <br/>
 Password: openlituser
 
 
