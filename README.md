@@ -36,7 +36,7 @@ Alternatively, you can set the environment variable for the Hugging Face API key
 
 
 ## Llama3 model access
-The `meta-llama/Llama-3.1-8B-Instruct` model used in this application requires access permission to be granted by Meta. Access requests can be made under the [llama3 model](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) on the Hugging Face webpage by filling out the Meta Release form. Once permission is granted, the model is automatically made available though you Hugging Face CLI login.
+The `meta-llama/Llama-3.1-8B-Instruct` model used in this application requires access permission to be granted by Meta. Access requests can be made under the [llama3 model](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct) on the Hugging Face webpage by filling out the Community License Agreement form. Once permission is granted, the model is automatically made available though you Hugging Face CLI login.
 
 
 ## Codebase Structure
