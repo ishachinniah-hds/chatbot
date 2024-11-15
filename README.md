@@ -53,7 +53,7 @@ Models used in this application may requires access permission to be granted by 
 
 
 ## Monitoring with OpenLit
-The Project integrates [OpenLit](https://github.com/openlit/openlit) to get insights into the AI application's performance, behavior, and identify areas of improvement. The openlit SDK installation and initialization is completed within the app.py file and requirement.txt file. The following steps are required to deploy and visualize the OpenLit Stack:
+The Project integrates [OpenLit](https://github.com/openlit/openlit) to get insights into the AI application's performance, behavior, and identify areas for improvement. The openlit SDK installation and initialization is completed within the app.py file and requirement.txt file. The following steps are required to deploy and visualize the OpenLit Stack:
 
 ### Deploy OpenLIT Stack
 Git Clone OpenLIT Repository
@@ -71,6 +71,6 @@ Password: openlituser
 
 
 ## Running the Application
-The application can be run through the CLI by running `python app.py`. The application will request the user to input the file path to the document that will be queried, followed by a question about the uploaded document. The RAG application will process the document and output relevant context-based answers about the document using the LLM. 
+The application can be run through the CLI by executing the command `python app.py` within the chatbot directory. The application will request the user to input the file path to the document that will be queried, followed by a question about the uploaded document. The RAG application will process the document and output relevant context-based answers about the document using the LLM. 
 
 
