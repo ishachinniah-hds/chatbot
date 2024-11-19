@@ -1,5 +1,9 @@
 #!
 clear
+echo "we need git"
+dnf install git-core -y
+echo 
+echo
 echo "installing python, pip, and requirements"
 echo
 echo
