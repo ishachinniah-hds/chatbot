@@ -25,8 +25,10 @@ def process_pdf(source):
         raise ValueError(
             "All pages in the PDF appear to be scanned. Please use a PDF with text content."
        )
+    
+    return unscanned_documents
 
-    return split_documents(unscanned_documents)
+    #return split_documents(unscanned_documents)
 
 def process_image(source):
    # Extract text from image using OCR
@@ -35,20 +37,22 @@ def process_image(source):
 
     extracted_text = extract_from_images_with_rapidocr([image_bytes])
     documents = [Document(page_content=extracted_text, metadata={"source": source})]
-    return split_documents(documents)
+    return documents
+    # return split_documents(documents)
 
 def process_csv(source):
     loader = CSVLoader(file_path=source) 
     documents = loader.load()
     documents = documents[:50]
-    return split_documents(documents)
+    return documents
+    # return split_documents(documents)
 
-def split_documents(documents):
-    # Split documents into smaller chunks for processing
-    text_splitter = RecursiveCharacterTextSplitter.from_language(
-        language=Language.PYTHON, chunk_size=1000, chunk_overlap=200
-    )
-    return text_splitter.split_documents(documents)
+# def split_documents(documents):
+#     # Split documents into smaller chunks for processing
+#     text_splitter = RecursiveCharacterTextSplitter.from_language(
+#         language=Language.PYTHON, chunk_size=1000, chunk_overlap=200
+#     )
+#     return text_splitter.split_documents(documents)
 
 def process_document(source):
     # Determine file type and process accordingly

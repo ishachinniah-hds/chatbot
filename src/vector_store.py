@@ -3,7 +3,7 @@
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 
-def vector_store(chunks, model_name="sentence-transformers/all-mpnet-base-v2"):
+def create_vector_store(chunks, model_name="sentence-transformers/all-mpnet-base-v2"):
     """
     Set up ChromaDB vector store given the document chunks. 
 
