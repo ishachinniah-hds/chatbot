@@ -4,6 +4,7 @@ import logging
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.text_splitter import Language
 from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_community.document_loaders.parsers.pdf import (
    extract_from_images_with_rapidocr,
 )
@@ -36,6 +37,12 @@ def process_image(source):
     documents = [Document(page_content=extracted_text, metadata={"source": source})]
     return split_documents(documents)
 
+def process_csv(source):
+    loader = CSVLoader(file_path=source) 
+    documents = loader.load()
+    documents = documents[:50]
+    return split_documents(documents)
+
 def split_documents(documents):
     # Split documents into smaller chunks for processing
     text_splitter = RecursiveCharacterTextSplitter.from_language(
@@ -49,6 +56,8 @@ def process_document(source):
         return process_pdf(source)
     elif source.lower().endswith((".png", ".jpg", ".jpeg")):
         return process_image(source)
+    elif source.lower().endswith((".csv")):
+        return process_csv(source)
     else:
         raise ValueError(f"Unsupported file type: {source}")
    
