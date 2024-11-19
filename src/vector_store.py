@@ -1,7 +1,7 @@
 # src/vector_store.py
 
 from langchain_community.vectorstores import Chroma
-from langchain.embeddings import HuggingFaceBgeEmbeddings
+from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 
 def vector_store(chunks, model_name="sentence-transformers/all-mpnet-base-v2"):
     """
