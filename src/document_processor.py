@@ -40,7 +40,6 @@ def process_image(source):
 def process_csv(source):
     loader = CSVLoader(file_path=source) 
     documents = loader.load()
-    documents = documents[:50]
     return documents
 
 def process_document(source):
