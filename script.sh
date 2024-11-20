@@ -4,19 +4,20 @@ echo "we need git"
 dnf install git-core -y
 echo 
 echo
+# echo "we need sqlite"
+# dnf install sqlite
+echo 
+echo
 echo "installing python, pip, and requirements"
 echo
 echo
 echo "If you did not move all the files to the VM, this script will not work"
 echo
 echo
-echo "assuming you are using the home directory, a tmp folder will be created within the working directory"
-echo
-echo
-export TMPDIR=/home/isaiasjasso/tmp/
+# export TMPDIR=/home/user/tmp/
 sudo dnf install python3 -y
 sudo dnf install python3-pip -y
-sudo pip install -r requirements.txt -y
+sudo pip install -r requirements.txt 
 # python3 -m pip install openlit
 echo
 echo
