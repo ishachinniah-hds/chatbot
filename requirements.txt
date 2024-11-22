@@ -4,7 +4,6 @@ langchain_community
 langchain_core
 langchain_huggingface
 python-dotenv
-faiss-cpu
 pypdf
 transformers
 sentence-transformers
