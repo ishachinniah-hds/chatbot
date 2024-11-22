@@ -2,7 +2,7 @@
 
 This project is a simple Retrieval-Augmented Generation (RAG) application that allows users to query context within PDF or image files (JPEG, PNG, JPG) and recieve relevant context-based responses using local Large Language Models. The application utilizes Langchain framework, Huggingface transformer LLMs, ChromaDB vector search, and OpenLit AI monitoring.
 
-The application was developed on **MacOS Sonoma 14.7.1** 
+The application was developed on **MacOS Sonoma 14.7.1** operating system using an **Apple M3 Pro** chip. 
 
 
 ## Project Capabilities
@@ -36,7 +36,7 @@ Alternatively, you can set the environment variable for the Hugging Face API key
 
 
 ## Model access
-Models used in this application may requires access permission to be granted by the developer - for instance, Meta llama models require permissions access from Meta. Access requests can be made within [Hugging Face models](https://huggingface.co/models) by filling out the Community License Agreement form under the specific model. Once permission is granted, the model is automatically made available through the Hugging Face CLI login.
+Models used in this application may require access permission to be granted by the developer - for instance, Meta llama models require permissions access from Meta. Access requests can be made within [Hugging Face models](https://huggingface.co/models) by filling out the Community License Agreement form under the specific model. Once permission is granted, the model is automatically made available through the Hugging Face CLI login.
 
 ### Supported Models 
 
@@ -47,9 +47,12 @@ Models used in this application may requires access permission to be granted by 
 
 
 ## Codebase Structure
-- `src/document_processor.py`: Manages document loading, processing, and splitting gor PDF and image files.
-- `src/rag_chain.py`: Creates the RAG chain using embeddings vector databsase and LLM calls.
-- `app.py`: The CLI interface for user interaction, processing input documents, and querying the RAG assistant.
+- `src/document_processor.py`: Manages document loading and processing fo a CSV, PDF, or image files.
+- `src/text_split.py`: Splits the document into chunks of text.
+- `src/vector_store.py`: Embeds the document chunks into a ChromaDB vector database and returns a retriever.
+- `src/prompt.py`: Generates a prompt template to combine the relevant context and user query.
+- `src/rag_chain.py`: Creates the RAG chain by feeding the user query and relevant context to the LLM.
+- `app.py`: The CLI interface for user interaction - inputting documents and querying the RAG assistant.
 
 
 ## Monitoring with OpenLit

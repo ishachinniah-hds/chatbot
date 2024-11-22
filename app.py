@@ -15,14 +15,20 @@ def main():
     documents = process_document(source)
 
     while True:
-        question = input("Ask a question about the document (or type 'exit' to quit): ")
-        if question.lower() == "exit":
+        question = input("Ask a question about the document (or type 'quit' to quit): ")
+        if question.lower() == "quit":
             break
 
         # Create rag chain
         rag_chain = create_rag_chain(documents)
         answer = rag_chain.invoke(question)
-        print("Answer:", answer)
+
+        # # Print only the answer
+        # answer_start_index = answer.find("Answer:")
+        # answer_content = answer[answer_start_index:].strip()
+        # print(answer_content)   
+
+        print(f"\nAnswer:{answer}")
 
 if __name__ == "__main__":
     main()

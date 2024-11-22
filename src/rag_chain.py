@@ -1,27 +1,16 @@
 # rag_chain.py
 
-from dotenv import load_dotenv
-from langchain.prompts import PromptTemplate
+# from langchain.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 from langchain_huggingface import HuggingFacePipeline
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 import torch
 from src.vector_store import create_vector_store
-from src.split import split_documents
+from src.text_split import split_documents
+from src.prompt import create_prompt
 
-# Load the API key from env variables
-load_dotenv()
-
-RAG_PROMPT_TEMPLATE = """
-You are a helpful assistant that can answer questions about the provided context.
-
-If you don't know the answer, say you don't know.
-
-Context: {context}
-Question: {question}
-"""
-PROMPT = PromptTemplate.from_template(RAG_PROMPT_TEMPLATE)
+PROMPT = create_prompt()
 
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
@@ -30,6 +19,9 @@ def create_rag_chain(documents):
     # Split and embed the documents
     chunks = split_documents(documents)
     retriever = create_vector_store(chunks)
+
+    # Generate the prompt template
+    PROMPT = create_prompt()
 
     # Set up Huggingface language model
     llm_model = "meta-llama/Llama-3.2-3B-Instruct"
