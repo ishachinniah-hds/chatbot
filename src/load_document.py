@@ -1,8 +1,6 @@
 # document_processor.py
 
 import logging
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.text_splitter import Language
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_community.document_loaders.parsers.pdf import (
@@ -10,7 +8,7 @@ from langchain_community.document_loaders.parsers.pdf import (
 )
 from langchain.schema import Document
 
-def process_pdf(source):
+def load_pdf(source):
     loader = PyPDFLoader(source)
     documents = loader.load()
 
@@ -28,7 +26,7 @@ def process_pdf(source):
     
     return unscanned_documents
 
-def process_image(source):
+def load_image(source):
    # Extract text from image using OCR
     with open(source, "rb") as image_file:
         image_bytes = image_file.read()
@@ -37,19 +35,19 @@ def process_image(source):
     documents = [Document(page_content=extracted_text, metadata={"source": source})]
     return documents
 
-def process_csv(source):
+def load_csv(source):
     loader = CSVLoader(file_path=source) 
     documents = loader.load()
     return documents
 
-def process_document(source):
+def loader(source):
     # Determine file type and process accordingly
     if source.lower().endswith(".pdf"):
-        return process_pdf(source)
+        return load_pdf(source)
     elif source.lower().endswith((".png", ".jpg", ".jpeg")):
-        return process_image(source)
+        return load_image(source)
     elif source.lower().endswith((".csv")):
-        return process_csv(source)
+        return load_csv(source)
     else:
         raise ValueError(f"Unsupported file type: {source}")
    
