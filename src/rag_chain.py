@@ -21,6 +21,7 @@ def create_rag_chain(retriever, model_name, prompt):
         device=torch.device('cuda' if torch.cuda.is_available() else 'cpu'),
         pad_token_id=tokenizer.eos_token_id,
         max_new_tokens=256, 
+        temperature = 0.5,
         )
     llm = HuggingFacePipeline(pipeline=hf_pipeline)
 

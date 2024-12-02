@@ -3,6 +3,12 @@ clear
 echo "we need git"
 dnf install git-core -y
 echo 
+echo 
+echo "pulling in app repo"
+echo 
+echo 
+git clone https://github.com/ishachinniah-hds/chatbot.git
+echo 
 echo
 # echo "we need sqlite"
 # dnf install sqlite
@@ -94,6 +100,9 @@ echo
 echo
 echo "git clone the openlit repo and docker compose the openlit Dockerfile"
 echo
+echo
+cd chatbot
+echo 
 echo
 git clone https://github.com/openlit/openlit.git
 echo

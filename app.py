@@ -11,7 +11,9 @@ from src.prompt import create_prompt
 import openlit
 
 openlit.init(
-    otlp_endpoint="http://127.0.0.1:4318"
+    # otlp_endpoint="http://127.0.0.1:4318"
+    otlp_endpoint="https://my-observability-project-c7c032.apm.us-west-2.aws.elastic.cloud:443", 
+    otlp_headers="Authorization=ApiKey cGV1TWlKTUJ0OUZSTkwxZU1Pbi06VS12WEpMd2FRMGFvSnF6WmxFcEJRZw=="
 )
 load_dotenv()
 
@@ -38,7 +40,7 @@ def main():
     config = load_config(args.json_file)
 
     # Use .get() method to extract parameters, providing sensible defaults
-    filepath = config.get("filepath", "/Users/isha/desktop/Documents/movies_processed.csv")
+    filepath = config.get("filepath", "/Users/isha/Desktop/FinOps/chatbot/dataset/movies.csv")
     question = config.get("question", "What is a good animated movie similar to Aladdin?")
     chunk_size = config.get("chunk_size", 1000)
     chunk_overlap = config.get("chunk_overlap", 200)
@@ -53,12 +55,10 @@ def main():
     prompt = create_prompt(template)
     rag_chain = create_rag_chain(retriever, llm_model, prompt)
     answer = rag_chain.invoke(question)
-    print(f"\nAnswer:\n{answer}")
 
-    # # Print only the answer
-    # answer_start_index = answer.find("Answer:")
-    # answer_content = answer[answer_start_index:].strip()
-    # print(answer_content) 
+    with open("output.txt", "w") as file:
+        file.write(answer)
+    print(f"\nOutput:\n{answer}")
 
 if __name__ == "__main__":
     main()
