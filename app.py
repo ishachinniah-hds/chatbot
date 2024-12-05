@@ -11,7 +11,10 @@ from src.prompt import create_prompt
 import openlit
 
 openlit.init(
+    # openlit dashboard endpoint
     # otlp_endpoint="http://127.0.0.1:4318"
+
+    # elastic endpoint
     otlp_endpoint="https://my-observability-project-c7c032.apm.us-west-2.aws.elastic.cloud:443", 
     otlp_headers="Authorization=ApiKey cGV1TWlKTUJ0OUZSTkwxZU1Pbi06VS12WEpMd2FRMGFvSnF6WmxFcEJRZw=="
 )
@@ -39,8 +42,8 @@ def main():
     # Load configuration from the JSON file
     config = load_config(args.json_file)
 
-    # Use .get() method to extract parameters and provide default values
-    filepath = config.get("datset_filepath", "./dataset/movies.csv")
+    # Use .get() method to extract parameters and provide default values    
+    filepath = config.get("dataset_filepath", "./dataset/movies.csv")
     question = config.get("query", "What is a good animated movie similar to Aladdin?")
     chunk_size = config.get("chunk_size", 1000)
     chunk_overlap = config.get("chunk_overlap", 200)
