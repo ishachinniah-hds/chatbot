@@ -40,7 +40,7 @@ def main():
     config = load_config(args.json_file)
 
     # Use .get() method to extract parameters and provide default values
-    filepath = config.get("datset_filepath", "/Users/isha/Desktop/FinOps/chatbot/dataset/movies.csv")
+    filepath = config.get("datset_filepath", "./dataset/movies.csv")
     question = config.get("query", "What is a good animated movie similar to Aladdin?")
     chunk_size = config.get("chunk_size", 1000)
     chunk_overlap = config.get("chunk_overlap", 200)
