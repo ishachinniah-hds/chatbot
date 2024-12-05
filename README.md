@@ -47,7 +47,7 @@ Models used in this application may require access permission to be granted by t
 
 
 ## Codebase Structure
-- `app.py`: The CLI interface for user interaction - inputting documents and querying the RAG assistant.
+- `app.py`: python file that runs the application - takes a .json file argument specifying parameters.
 - `src`: Contains the source code for the application
     - `src/load_document.py`: Manages document loading and processing fo a CSV, PDF, or image files.
     - `src/split_text.py`: Splits the document into chunks of text.
