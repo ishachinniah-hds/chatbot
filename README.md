@@ -49,11 +49,11 @@ Models used in this application may require access permission to be granted by t
 ## Codebase Structure
 - `app.py`: The CLI interface for user interaction - inputting documents and querying the RAG assistant.
 - `src`: Contains the source code for the application
-- - `src/load_document.py`: Manages document loading and processing fo a CSV, PDF, or image files.
-- - `src/split_text.py`: Splits the document into chunks of text.
-- - `src/vector_store.py`: Embeds the document chunks into a ChromaDB vector store and returns a retriever.
-- - `src/prompt.py`: Generates a prompt template to combine the relevant context and user query.
-- - `src/rag_chain.py`: Creates the RAG chain by feeding the user query and relevant context to the LLM.
+    - `src/load_document.py`: Manages document loading and processing fo a CSV, PDF, or image files.
+    - `src/split_text.py`: Splits the document into chunks of text.
+    - `src/vector_store.py`: Embeds the document chunks into a ChromaDB vector store and returns a retriever.
+    - `src/prompt.py`: Generates a prompt template to combine the relevant context and user query.
+    - `src/rag_chain.py`: Creates the RAG chain by feeding the user query and relevant context to the LLM.
 - `tests`: Contains JSON files for setting key parameters (dataset, query, prompt template, etc) for running tests on the demo RAG application. 
 - `datasets`: Contains sample datasets that can be specified in the JSON file to run the application.
 
