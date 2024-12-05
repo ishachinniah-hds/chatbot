@@ -47,12 +47,15 @@ Models used in this application may require access permission to be granted by t
 
 
 ## Codebase Structure
-- `src/document_processor.py`: Manages document loading and processing fo a CSV, PDF, or image files.
-- `src/text_split.py`: Splits the document into chunks of text.
-- `src/vector_store.py`: Embeds the document chunks into a ChromaDB vector database and returns a retriever.
-- `src/prompt.py`: Generates a prompt template to combine the relevant context and user query.
-- `src/rag_chain.py`: Creates the RAG chain by feeding the user query and relevant context to the LLM.
 - `app.py`: The CLI interface for user interaction - inputting documents and querying the RAG assistant.
+- `src`: Contains the source code for the application
+- - `src/load_document.py`: Manages document loading and processing fo a CSV, PDF, or image files.
+- - `src/split_text.py`: Splits the document into chunks of text.
+- - `src/vector_store.py`: Embeds the document chunks into a ChromaDB vector store and returns a retriever.
+- - `src/prompt.py`: Generates a prompt template to combine the relevant context and user query.
+- - `src/rag_chain.py`: Creates the RAG chain by feeding the user query and relevant context to the LLM.
+- `tests`: Contains JSON files for setting key parameters (dataset, query, prompt template, etc) for running tests on the demo RAG application. 
+- `datasets`: Contains sample datasets that can be specified in the JSON file to run the application.
 
 
 ## Monitoring with OpenLit
@@ -74,6 +77,6 @@ Password: openlituser
 
 
 ## Running the Application
-The application can be run through the CLI by executing the command `python app.py` within the chatbot directory. The application will request the user to input the file path to the document that will be queried, followed by a question about the uploaded document. The RAG application will process the document and output relevant context-based answers about the document using the LLM. 
+The application is run in the CLI by executing the command `python app.py ./tests/<specific.json>` within the chatbot directory. The application will run with all the parameters (dataset, query, prompt, etc) specified in the specific.json file. The RAG application will process the document and output relevant context-based answers to the user's query using the LLM. 
 
 
