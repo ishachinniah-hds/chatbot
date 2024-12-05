@@ -36,7 +36,7 @@ def load_image(source):
     return documents
 
 def load_csv(source):
-    loader = CSVLoader(file_path=source) 
+    loader = CSVLoader(file_path=source, encoding="utf-8") 
     documents = loader.load()
     return documents
 

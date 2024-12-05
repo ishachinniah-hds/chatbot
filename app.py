@@ -12,11 +12,11 @@ import openlit
 
 openlit.init(
     # openlit dashboard endpoint
-    # otlp_endpoint="http://127.0.0.1:4318"
+    otlp_endpoint="http://127.0.0.1:4318", 
 
     # elastic endpoint
-    otlp_endpoint="https://my-observability-project-c7c032.apm.us-west-2.aws.elastic.cloud:443", 
-    otlp_headers="Authorization=ApiKey cGV1TWlKTUJ0OUZSTkwxZU1Pbi06VS12WEpMd2FRMGFvSnF6WmxFcEJRZw=="
+    # otlp_endpoint="https://my-observability-project-c7c032.apm.us-west-2.aws.elastic.cloud:443", 
+    # otlp_headers="Authorization=ApiKey cGV1TWlKTUJ0OUZSTkwxZU1Pbi06VS12WEpMd2FRMGFvSnF6WmxFcEJRZw=="
 )
 load_dotenv()
 
@@ -45,11 +45,11 @@ def main():
     # Use .get() method to extract parameters and provide default values    
     filepath = config.get("dataset_filepath", "./dataset/movies.csv")
     question = config.get("query", "What is a good animated movie similar to Aladdin?")
-    chunk_size = config.get("chunk_size", 1000)
-    chunk_overlap = config.get("chunk_overlap", 200)
+    template = config.get("prompt_template", "Context: {context} Question: {question}")
     embedding_model = config.get("embedding_model", "sentence-transformers/all-mpnet-base-v2")
     llm_model = config.get("llm_model", "meta-llama/Llama-3.2-3B-Instruct")
-    template = config.get("prompt_template", "Context: {context} Question: {question}")
+    chunk_size = config.get("chunk_size", 1000)
+    chunk_overlap = config.get("chunk_overlap", 200)
     max_tokens = config.get("max_tokens", 256)
     temperature = config.get("temperature", 0.1)
 
