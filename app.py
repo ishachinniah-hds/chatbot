@@ -31,7 +31,7 @@ def load_config(config_file):
         raise ValueError(f"Error decoding JSON from {config_file}. Ensure the file is properly formatted.")
 
 def main():
-    # Take a JSON file through comman-line argument
+    # Take a JSON file through command-line argument
     parser = argparse.ArgumentParser(description="Process a JSON file")
     parser.add_argument('json_file', type=str, help='Path to the JSON file')
     args = parser.parse_args()
@@ -39,21 +39,23 @@ def main():
     # Load configuration from the JSON file
     config = load_config(args.json_file)
 
-    # Use .get() method to extract parameters, providing sensible defaults
-    filepath = config.get("filepath", "/Users/isha/Desktop/FinOps/chatbot/dataset/movies.csv")
-    question = config.get("question", "What is a good animated movie similar to Aladdin?")
+    # Use .get() method to extract parameters and provide default values
+    filepath = config.get("datset_filepath", "/Users/isha/Desktop/FinOps/chatbot/dataset/movies.csv")
+    question = config.get("query", "What is a good animated movie similar to Aladdin?")
     chunk_size = config.get("chunk_size", 1000)
     chunk_overlap = config.get("chunk_overlap", 200)
     embedding_model = config.get("embedding_model", "sentence-transformers/all-mpnet-base-v2")
     llm_model = config.get("llm_model", "meta-llama/Llama-3.2-3B-Instruct")
-    template = config.get("template", "Context: {context} Question: {question}")
+    template = config.get("prompt_template", "Context: {context} Question: {question}")
+    max_tokens = config.get("max_tokens", 256)
+    temperature = config.get("temperature", 0.1)
 
     # call modules to load, chunk, embed, create prompt, set up rag chain, invoke rag chain
     documents = loader(filepath)
     chunks = split_documents(documents, chunk_size, chunk_overlap)
     retriever = create_vector_store(chunks, embedding_model)
     prompt = create_prompt(template)
-    rag_chain = create_rag_chain(retriever, llm_model, prompt)
+    rag_chain = create_rag_chain(retriever, llm_model, prompt, max_tokens, temperature)
     answer = rag_chain.invoke(question)
 
     with open("output.txt", "w") as file:

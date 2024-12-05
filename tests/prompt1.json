@@ -1,0 +1,15 @@
+{
+    "dataset_filepath": "./dataset/movies.csv",
+
+    "query": "What is a good animated movie similar to Aladdin?",
+    "prompt_template": "You are a helpful movie recommender system that uses only the available information from the dataset to provide insightful and relevant recommendations. \n\nxxxContextxxx: \n{context} \n\nxxxQuestionxxx: {question} \n\nxxxAnswerxxx: ",
+
+    "embedding_model": "sentence-transformers/all-mpnet-base-v2",
+    "llm_model": "meta-llama/Llama-3.2-3B-Instruct",
+
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "max_tokens": 256,
+    "temperature": 0.1
+}
+  

@@ -9,7 +9,7 @@ import torch
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
-def create_rag_chain(retriever, model_name, prompt):
+def create_rag_chain(retriever, model_name, prompt, max_tokens, temperature):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForCausalLM.from_pretrained(model_name)
 
@@ -20,8 +20,8 @@ def create_rag_chain(retriever, model_name, prompt):
         model_kwargs={"torch_dtype": torch.bfloat16}, 
         device=torch.device('cuda' if torch.cuda.is_available() else 'cpu'),
         pad_token_id=tokenizer.eos_token_id,
-        max_new_tokens=256, 
-        temperature = 0.5,
+        max_new_tokens=max_tokens, 
+        temperature = temperature,
         )
     llm = HuggingFacePipeline(pipeline=hf_pipeline)
 
